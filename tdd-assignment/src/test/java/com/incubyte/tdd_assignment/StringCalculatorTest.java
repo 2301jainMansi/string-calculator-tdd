@@ -9,8 +9,8 @@ import com.incubyte.tdd.calculator.StringCalculator;
 public class StringCalculatorTest {
 
 	@Test
-	void newlinesBetweenNumbersAreValid() {
+	void customDelimiterReturnsSum() {
 	    StringCalculator calc = new StringCalculator();
-	    assertEquals(6, calc.add("1\n2,3"), "Newline should be treated as delimiter");
+	    assertEquals(3, calc.add("//;\n1;2"), "Custom delimiter should work");
 	}
 }
