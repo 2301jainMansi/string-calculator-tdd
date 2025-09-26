@@ -10,8 +10,21 @@ public class StringCalculator {
 	    }
 	    String[] nums = numbers.split(",");
 	    int sum = 0;
+	    
+	    
+	    StringBuilder negatives = new StringBuilder();
 	    for (String num : nums) {
-	        sum += Integer.parseInt(num);
+	        int n = Integer.parseInt(num);
+	        if (n < 0) {
+	            if (negatives.length() > 0) negatives.append(", ");
+	            negatives.append(n);
+	        } else {
+	            sum += n;
+	        }
+	    }
+	    if (negatives.length() > 0) {
+	        throw new IllegalArgumentException("Negative numbers not allowed: " + negatives);
 	    }
 	    return sum;
-	}}
+	}
+  }
