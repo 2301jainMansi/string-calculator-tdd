@@ -9,8 +9,8 @@ import com.incubyte.tdd.calculator.StringCalculator;
 public class StringCalculatorTest {
 
 	@Test
-	void twoNumbersCommaSeparatedReturnsSum() {
+	void multipleNumbersCommaSeparatedReturnsSum() {
 	    StringCalculator calc = new StringCalculator();
-	    assertEquals(3, calc.add("1,2"), "Two numbers should return their sum");
+	    assertEquals(10, calc.add("1,2,3,4"), "Multiple numbers should return their sum");
 	}
 }
