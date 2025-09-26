@@ -1,6 +1,7 @@
 package com.incubyte.tdd_assignment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +10,11 @@ import com.incubyte.tdd.calculator.StringCalculator;
 public class StringCalculatorTest {
 
 	@Test
-	void customDelimiterReturnsSum() {
+	void negativeNumbersThrowException() {
 	    StringCalculator calc = new StringCalculator();
-	    assertEquals(3, calc.add("//;\n1;2"), "Custom delimiter should work");
+	    Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+	        calc.add("1,-2,3,-4");
+	    });
+	    assertEquals("Negative numbers not allowed: -2, -4", exception.getMessage());
 	}
 }
