@@ -8,9 +8,9 @@ import com.incubyte.tdd.calculator.StringCalculator;
 
 public class StringCalculatorTest {
 
-	    @Test
-	    void emptyStringReturnsZero() {
-	        StringCalculator calc = new StringCalculator();
-	        assertEquals(0, calc.add(""), "Empty string should return 0");
-	    }
+	@Test
+	void singleNumberReturnsItself() {
+	    StringCalculator calc = new StringCalculator();
+	    assertEquals(5, calc.add("5"), "Single number should return itself");
+	}
 }
