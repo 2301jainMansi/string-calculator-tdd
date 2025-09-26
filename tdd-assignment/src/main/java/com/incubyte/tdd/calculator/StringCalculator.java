@@ -4,7 +4,10 @@ public class StringCalculator {
 	public int add(String numbers) {
 	    if (numbers.isEmpty()) return 0;
 	    
-	    numbers = numbers.replace("\n", ",");
+	    if (numbers.startsWith("//")) {
+	        String delimiter = numbers.substring(2, 3);
+	        numbers = numbers.substring(4).replace(delimiter, ",");
+	    }
 	    String[] nums = numbers.split(",");
 	    int sum = 0;
 	    for (String num : nums) {
